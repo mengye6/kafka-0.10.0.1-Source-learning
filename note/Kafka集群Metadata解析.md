@@ -169,5 +169,7 @@ Kafka客户端从任一broker都可以获取到需要的metadata信息;
       }
 ```
 1.先确定需要获取哪些topic的metadata信息,  如果request里未指定topic, 则获取当前所有的topic的metadata信息;
+
 2.有效性验证,将topic分为authorizedTopics和unauthorizedTopics;
+
 3.获取authorizedTopics的metadata, 注意getTopicMetadata方法是关键所在, 它会先筛选出当前不存在的topic, 如果auto.create.topics.enable=true, 则调用AdminUtils.createTopic先创建此topic, 但此时其PartitionStateInfo为空, 不过也会作为Metadata Response的一部分返回给客户端.
