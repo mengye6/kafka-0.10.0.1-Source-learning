@@ -1,7 +1,6 @@
 对于集群中的每一个broker都保存着相同的完整的整个集群的metadata信息;
 
 1.metadata信息里包括了每个topic的所有partition的信息: leader, leader_epoch, controller_epoch, isr, replicas等;
-+ ISR(in-Sync replicas ）里面维护的是所有与leader数据差异在阈值范围内的副本所在的broker id列表;
 + "controller_epoch": 表示kafka集群中的中央控制器选举次数,
 + "leader": 表示该partition选举leader的brokerId,
 + "version": 版本编号默认为1,
